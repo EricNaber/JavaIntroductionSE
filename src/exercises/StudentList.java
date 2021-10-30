@@ -148,6 +148,18 @@ public class StudentList {
         return this.findStudentId(pStudentId) != -1;
     }
 
+    void sort(Student.SortKey key){
+        // sort the list with bubble sort
+        for (int i = this.list.size()-1; i >= 0; i--){
+            for (int j = 0; j < i; j++) {
+                Student tmp = this.list.get(0);
+                if (this.list.get(j).getStudentId() > tmp.getStudentId()){
+                    continue;
+                }
+            }
+        }
+    }
+
     @Override
         /**
          * Overwriting toString()-method. Gives out all students like "Student\n".

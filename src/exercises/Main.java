@@ -25,5 +25,6 @@ public class Main {
         System.out.println("Added all students.");
 
         System.out.println(list1);
+        list1.sort(Student.SortKey.FIRSTNAME);
     }
 }
