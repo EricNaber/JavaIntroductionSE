@@ -148,16 +148,34 @@ public class StudentList {
         return this.findStudentId(pStudentId) != -1;
     }
 
+    /**
+     * This method is can be used to sort the list of Students by a special key.
+     * The method is sorting the elements with ***sort.
+     * @param key
+     */
     void sort(Student.SortKey key){
-        // sort the list with bubble sort
-        for (int i = this.list.size()-1; i >= 0; i--){
-            for (int j = 0; j < i; j++) {
-                Student tmp = this.list.get(0);
-                if (this.list.get(j).getStudentId() > tmp.getStudentId()){
-                    continue;
-                }
-            }
+        System.out.println(key);
+        switch (key){
+            case FIRSTNAME:
+                System.out.println("Sort by Firstname");
+                break;
+            case LASTNAME:
+                System.out.println("Sort by Lastname");
+                break;
+            case STUDENT_ID:
+                System.out.println("Sort by Student_ID");
+                break;
+            case WEIGHT:
+                System.out.println("Sort by Weight");
+                break;
+            case BIRTHDAY:
+                System.out.println("Sort by Birthday");
+                break;
+            default:
+                System.out.println("Default");
+                throw new IllegalArgumentException("The sort-key is not valid. Please take a correct one.");
         }
+        System.out.println("End of Switch case");
     }
 
     @Override
