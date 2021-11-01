@@ -6,14 +6,19 @@ import java.util.Date;
  * Exercise 2, Task 2
  *
  * Group: AG1 01
- * Dennis Mayer 108 020 *** ***
- * Jérôme Bruck 108 020 *** ***
+ * Dennis Mayer 108 020 207 299
+ * Jérôme Bruck 108 020 218 150
  * Eric Naber 108 020 213 168
  */
 public class Main {
 
     public static void main(String[] args) {
+//      Creating a new list from type StudentList
+        System.out.println("Creating new StudentList.");
         StudentList list1 = new StudentList();
+
+//      Adding all students to the list.
+        System.out.println("Adding all students:\n");
         list1.add(new Student("Harry", "Potter", 1L, 80d, new Date(80, 6, 31)));
         list1.add(new Student("Ginny", "Weasley", 2L,  70d, new Date(81, 7, 11)));
         list1.add(new Student("Ron", "Weasley", 3L, 90d, new Date(80, 2, 1)));
@@ -30,9 +35,32 @@ public class Main {
         list1.add(new Student("Gellert", "Grindelwald", 14L, 83d, new Date(-16, 0, 0)));
         list1.add(new Student("Newt", "Scamander", 15L, 76d, new Date(97, 1, 24)));
         list1.add(new Student("Neville", "Longbottom", 16L, 76d, new Date(80, 6, 30)));
+        list1.add(new Student("Neville", "Longbottom", 16L, 76d, new Date(80, 6, 30)));
+        System.out.println(list1 + "\n");
 
+//      Removing Dumbledore:
+        System.out.print("Removing Dumbledore... ");
+        list1.remove(list1.findLastname("Dumbledore").get(0));
+        if (list1.findLastname("Dumbledore").size() == 0){
+            System.out.println("Successfully\n");
+        }
+
+//      Sorting and printing by firstname:
+        list1.sort(Student.SortKey.FIRSTNAME);
+        System.out.println("Sorted by firstname:\n" + list1 + "\n");
+//      Adding Student with existing StudentID (wont add, ID already given):
+        System.out.println("Adding Eric Naber (ID=1), Successfully... " + list1.add(new Student("Eric",
+                "Naber", 1L, 74d, new Date(101, 3, 25))) + "\n");
+//      Sorting and printing by studentID
+        list1.sort(Student.SortKey.STUDENT_ID);
+        System.out.println("Sorted by studentId:\n" + list1 + "\n");
+//      Removing Harry Potter, adding Eric Naber again, printing
+        System.out.println("Removing Harry Potter, adding Eric Naber again.");
+        list1.remove(list1.findStudentId(1));
+        list1.add(new Student("Eric", "Naber", 1L, 74d, new Date(101, 3, 25)));
+        list1.sort(Student.SortKey.STUDENT_ID);
         System.out.println(list1);
-        list1.sort(Student.SortKey.LASTNAME);
-        System.out.println(list1);
+//      Here you can keep on debugging. It is hard to test every function especially super rare cases.
+//      E.g. sorting list with no element. There can always be exceptions hard to consider...
     }
 }

@@ -6,8 +6,8 @@ import java.util.Date;
  * Exercise 2, Task 2
  *
  * Group: AG1 01
- * Dennis Mayer 108 020 *** ***
- * Jérôme Bruck 108 020 *** ***
+ * Dennis Mayer 108 020 207 299
+ * Jérôme Bruck 108 020 218 150
  * Eric Naber 108 020 213 168
  */
 public class Student {
@@ -63,10 +63,6 @@ public class Student {
     }
 
     @Override
-        /**
-         * Overwriting toString()-method. Gives out all fields of Student
-         * like "studentId firstname lastname birthday weight"
-         */
         public String toString(){
                 return this.studentId + " " + this.firstname + " " + this.lastname + " | " + this.birthday + " | " +
                         this.weight;

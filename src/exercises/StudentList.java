@@ -6,17 +6,17 @@ import java.util.ArrayList;
  * Exercise 2, Task 2
  *
  * Group: AG1 01
- * Dennis Mayer 108 020 *** ***
- * Jérôme Bruck 108 020 *** ***
+ * Dennis Mayer 108 020 207 299
+ * Jérôme Bruck 108 020 218 150
  * Eric Naber 108 020 213 168
  */
 public class StudentList {
     // fields of class StudentList
-    private ArrayList<Student> list;
+    private final ArrayList<Student> list;
 
     // constructors of class StudentList
     StudentList(){
-       this.list = new ArrayList<Student>();
+       this.list = new ArrayList<>();
     }
     StudentList(StudentList pList){
         this.list = pList.list;
@@ -88,12 +88,13 @@ public class StudentList {
     }
 
     /**
+     * This method searches for Students with a concrete lastname.
      *
-     * @param pLastname
-     * @return
+     * @param pLastname is the lastname the method is searching for.
+     * @return returns an ArrayList<Student> with all students having lastname = pLastname.
      */
     ArrayList<Student> findLastname(String pLastname){
-        ArrayList<Student> result = new ArrayList<Student>();
+        ArrayList<Student> result = new ArrayList<>();
         for (Student student : this.list){
             if (student.getLastname().equals(pLastname)){
                 result.add(student);
@@ -103,12 +104,13 @@ public class StudentList {
     }
 
     /**
+     * This method searches for Students with a concrete firstname.
      *
-     * @param pFirstname
-     * @return
+     * @param pFirstname is the firstname the method is searching for.
+     * @return returns an ArrayList<Student> with all students having firstname = pFirstname.
      */
     ArrayList<Student> findFirstname(String pFirstname){
-        ArrayList<Student> result = new ArrayList<Student>();
+        ArrayList<Student> result = new ArrayList<>();
         for (Student student : this.list){
             if (student.getFirstname().equals(pFirstname)){
                 result.add(student);
@@ -118,9 +120,9 @@ public class StudentList {
     }
 
     /**
-     *
-     * @param pStudentId
-     * @return
+     * This method searches for Students with a concrete studentId
+     * @param pStudentId is the studentId the method is searching for.
+     * @return returns an ArrayList<Student> with all students having studentId = pStudentId.
      */
     int findStudentId(long pStudentId){
         for (int i = 0; i < this.list.size(); i++){
@@ -133,7 +135,7 @@ public class StudentList {
     }
 
     /**
-     * @return The size the list what is equal to the number of Students the list contains.
+     * @return The size of the list what is equal to the number of Students the list contains.
      */
     int size(){
         return this.list.size();
@@ -149,14 +151,13 @@ public class StudentList {
     }
 
     /**
-     * This method is can be used to sort the list of Students by a special key.
+     * This method can be used to sort the list of Students by a special key.
+     * The method itself just decides which key is used to sort the list. The sorting algorithm
+     * (what is a form of Selection-Sort) is implemented in other functions such as sortByFirstname().
      * The method is sorting the elements with ***sort.
-     * @param key
+     * @param key (FIRSTNAME, LASTNAME, STUDENT_ID, WEIGHT, BIRTHDAY) sorting by that argument
      */
     void sort(Student.SortKey key){
-        if (this.list.size() == 0){
-            return;
-        }
         switch (key){
             case FIRSTNAME:
                 this.sortByFirstname();
@@ -180,7 +181,8 @@ public class StudentList {
     }
 
     /**
-     * ...
+     * This method is sorting the list by its firstnames.
+     * It does not return anything and does not need any parameters.
      */
     void sortByFirstname(){
         for (int i = this.list.size(); i > 0; i--){
@@ -195,7 +197,8 @@ public class StudentList {
     }
 
     /**
-     * ...
+     * This method is sorting the list by its lastnames.
+     * It does not return anything and does not need any parameters.
      */
     void sortByLastname(){
         for (int i = this.list.size(); i > 0; i--){
@@ -209,7 +212,8 @@ public class StudentList {
         }
     }
     /**
-     * ...
+     * This method is sorting the list by its studentIds.
+     * It does not return anything and does not need any parameters.
      */
     void sortByStudentID(){
         for (int i = this.list.size(); i > 0; i--){
@@ -224,7 +228,8 @@ public class StudentList {
     }
 
     /**
-     * ...
+     * This method is sorting the list by its weights.
+     * It does not return anything and does not need any parameters.
      */
     void sortByWeight(){
         for (int i = this.list.size(); i > 0; i--){
@@ -238,7 +243,8 @@ public class StudentList {
         }
     }
     /**
-     * ...
+     * This method is sorting the list by its birthdays.
+     * It does not return anything and does not need any parameters.
      */
     void sortByBirthday(){
         for (int i = this.list.size(); i > 0; i--){
@@ -254,9 +260,6 @@ public class StudentList {
     }
 
     @Override
-        /**
-         * Overwriting toString()-method. Gives out all students like "Student\n".
-         */
         public String toString(){
             String result = "";
             for (Student student : this.list){
