@@ -154,28 +154,103 @@ public class StudentList {
      * @param key
      */
     void sort(Student.SortKey key){
-        System.out.println(key);
+        if (this.list.size() == 0){
+            return;
+        }
         switch (key){
             case FIRSTNAME:
-                System.out.println("Sort by Firstname");
+                this.sortByFirstname();
                 break;
             case LASTNAME:
-                System.out.println("Sort by Lastname");
+                this.sortByLastname();
                 break;
             case STUDENT_ID:
-                System.out.println("Sort by Student_ID");
+                this.sortByStudentID();
                 break;
             case WEIGHT:
-                System.out.println("Sort by Weight");
+                this.sortByWeight();
                 break;
             case BIRTHDAY:
-                System.out.println("Sort by Birthday");
+                this.sortByBirthday();
                 break;
             default:
                 System.out.println("Default");
                 throw new IllegalArgumentException("The sort-key is not valid. Please take a correct one.");
         }
-        System.out.println("End of Switch case");
+    }
+
+    /**
+     * ...
+     */
+    void sortByFirstname(){
+        for (int i = this.list.size(); i > 0; i--){
+            int tmp = 0;
+            for (int j = 0; j < i; j++){
+                if (this.list.get(j).getFirstname().compareTo(this.get(tmp).getFirstname()) < 0){
+                    tmp = j;
+                }
+            }
+            this.add(this.remove(tmp));
+        }
+    }
+
+    /**
+     * ...
+     */
+    void sortByLastname(){
+        for (int i = this.list.size(); i > 0; i--){
+            int tmp = 0;
+            for (int j = 0; j < i; j++){
+                if (this.list.get(j).getLastname().compareTo(this.get(tmp).getLastname()) < 0){
+                    tmp = j;
+                }
+            }
+            this.add(this.remove(tmp));
+        }
+    }
+    /**
+     * ...
+     */
+    void sortByStudentID(){
+        for (int i = this.list.size(); i > 0; i--){
+            int tmp = 0;
+            for (int j = 0; j < i; j++){
+                if (this.list.get(j).getStudentId() < this.get(tmp).getStudentId()){
+                    tmp = j;
+                }
+            }
+            this.add(this.remove(tmp));
+        }
+    }
+
+    /**
+     * ...
+     */
+    void sortByWeight(){
+        for (int i = this.list.size(); i > 0; i--){
+            int tmp = 0;
+            for (int j = 0; j < i; j++){
+                if (this.list.get(j).getWeight() < this.get(tmp).getWeight()){
+                    tmp = j;
+                }
+            }
+            this.add(this.remove(tmp));
+        }
+    }
+    /**
+     * ...
+     */
+    void sortByBirthday(){
+        for (int i = this.list.size(); i > 0; i--){
+            int tmp = 0;
+            for (int j = 0; j < i; j++){
+                if (
+                        this.list.get(j).getBirthday().compareTo(this.get(tmp).getBirthday()) < 0){
+                    tmp = j;
+                }
+            }
+            this.add(this.remove(tmp));
+        }
     }
 
     @Override

@@ -68,7 +68,7 @@ public class Student {
          * like "studentId firstname lastname birthday weight"
          */
         public String toString(){
-                return this.studentId + " " + this.firstname + " " + this.lastname + " " + this.birthday + " " +
+                return this.studentId + " " + this.firstname + " " + this.lastname + " | " + this.birthday + " | " +
                         this.weight;
             }
 }
