@@ -62,5 +62,14 @@ public class Main {
         System.out.println(list1);
 //      Here you can keep on debugging. It is hard to test every function especially super rare cases.
 //      E.g. sorting list with no element. There can always be exceptions hard to consider...
+
+
+        StudentList list2 = new StudentList();
+        list2.add(new Student("Peter", "Maffay", 1L, 60d, new Date(0)));
+        StudentList list3 = new StudentList(list2);
+        list3.remove(0);
+        System.out.println(list2);
+        System.out.println(list3);
+
     }
 }

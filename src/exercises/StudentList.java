@@ -19,7 +19,11 @@ public class StudentList {
        this.list = new ArrayList<>();
     }
     StudentList(StudentList pList){
-        this.list = pList.list;
+        StudentList res = new StudentList();
+        for (int i = 0; i < pList.size(); i++){
+            res.add(pList.get(i));
+        }
+        this.list = res.list;
     }
 
     // methods of class StudentList
